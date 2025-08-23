@@ -1,0 +1,138 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+#main-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 80vw;
+    border: 2px solid black;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes slide-random {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-50px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes grow-shrink-width {
+  0% {
+    width: 0;   /* initial size */
+  }
+  50% {
+    width: 100%; /* expanded */
+  }
+  100% {
+    width: 0;   /* back to initial size */
+  }
+}
+
+@keyframes grow-shrink-height {
+  0% {
+    height: 0;   /* initial size */
+  }
+  50% {
+    height: 100%; /* expanded */
+  }
+  100% {
+    height: 0;   /* back to initial size */
+  }
+}
+
+@keyframes grow-shrink {
+  0% {
+    height: 0;   /* initial size */
+    width: 0;   /* initial size */
+  }
+  50% {
+    height: 100%; /* expanded */
+    width: 100%;  /* expanded */
+  }
+  100% {
+    height: 0;   /* back to initial size */
+    width: 0;   /* back to initial size */
+  }
+}
+
+
+.increase {
+    animation: grow-shrink-height 4s linear infinite;
+}
+
+.move {
+    animation: slide-random 4s linear infinite;
+}
+
+.line {
+    height: 10px;
+    width: 100%;
+    margin: 5px 0;
+    animation: grow-shrink-height 2s linear infinite;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: grow-shrink 2s linear infinite;;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}
+
+/* .spin:hover {
+    animation-play-state: paused;
+} */
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
