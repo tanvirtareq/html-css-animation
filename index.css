@@ -1,0 +1,148 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+
+  background: url("images/backgroundimage.png");
+  background-size: cover; /* makes it fill the screen */
+  background-position: center; /* keeps it centered */
+  background-repeat: no-repeat;
+}
+
+#main-panel {
+  display: flex;
+  height: 400px;
+  width: 300px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch; /* makes the children take the full height */
+  gap: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* this is to match with background image */
+.text-box {
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 16px;
+}
+
+.text-area {
+  height: 200px;
+  resize: none;
+}
+
+.submit-btn {
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn span.plane {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  color: #00aaff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.submit-btn:hover .plane0 {
+  transform: translate(0px, 0px) scale(0) rotate(0deg);
+  animation: fly-plane0 5s forwards infinite;
+}
+
+.submit-btn:hover .plane1 {
+  transform: translate(-50%, -50%) scale(0) rotate(36deg);
+  animation: fly-plane1 5s forwards infinite;
+  animation-delay: 1s;
+}
+.submit-btn:hover .plane2 {
+  transform: translate(-50%, -50%) scale(0) rotate(72deg);
+  animation: fly-plane2 5s forwards infinite;
+  animation-delay: 2s;
+}
+.submit-btn:hover .plane3 {
+  transform: translate(-50%, -50%) scale(0) rotate(108deg);
+  animation: fly-plane3 5s forwards infinite;
+  animation-delay: 3s;
+}
+.submit-btn:hover .plane4 {
+  transform: translate(-50%, -50%) scale(0) rotate(144deg);
+  animation: fly-plane4 5s forwards infinite;
+  animation-delay: 4s;
+}
+
+@keyframes fly-plane0 {
+  0% {
+    transform: translate(0px, 0px) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(500px, 0px) scale(10) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+
+@keyframes fly-plane1 {
+  0% {
+    transform: translate(0px, 0px) scale(0) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(500px, -500px) scale(10) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fly-plane2 {
+  0% {
+    transform: translate(0px, 0px) scale(0) rotate(-90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0px, -500px) scale(10) rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fly-plane3 {
+  0% {
+    transform: translate(0px, 0px) scale(0) rotate(-135deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-500px, -500px) scale(10) rotate(-135deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fly-plane4 {
+  0% {
+    transform: translate(0px, 0px) scale(0) rotate(-180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-500px, 0px) scale(10) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+
+.submit-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
