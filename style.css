@@ -139,7 +139,7 @@ body {
     transform: scale(1);
     opacity: 0.8;
     transition: transform 0.01s linear;
-    animation: grow-shrink 10s linear infinite;
+    animation: grow-shrink 15s linear infinite;
 }
 
 .wrapper {

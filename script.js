@@ -18,13 +18,14 @@ const getRandomPosition = (parent_element) => {
     return { x, y };
 };
 
-let circles = [];
+let t_shape_circles = [];
+let j_shape_circles = [];
 
 const getRandomCircle = (parent_element) => {
     const circle = document.createElement('div');
     circle.classList.add('circle');
     circle.style.backgroundColor = getRandomColor();
-    let size = 1000;
+    let size = 500;
     circle.style.height = size + 'px';
     circle.style.width = size + 'px';
     const pos = getRandomPosition(parent_element);
@@ -35,7 +36,7 @@ const getRandomCircle = (parent_element) => {
     return circle;
 };
 
-const addCircle = (parent_element) => {
+const addCircle = (parent_element, circles) => {
     const circle = getRandomCircle(parent_element);
     parent_element.appendChild(circle);
     circles.push(circle);
@@ -43,12 +44,21 @@ const addCircle = (parent_element) => {
 
 setInterval(() => {
     const t_shape_element = document.getElementsByClassName('t-shape')[0];
-    addCircle(t_shape_element);
+    addCircle(t_shape_element, t_shape_circles);
     const j_shape_element = document.getElementsByClassName('j-shape')[0];
-    addCircle(j_shape_element);
-    if (circles.length > 10) {
-        const oldCircle = circles[Math.floor(Math.random() * circles.length)];
-        circles = circles.filter(c => c !== oldCircle);
-        t_shape_element.removeChild(oldCircle);
+    addCircle(j_shape_element, j_shape_circles);
+
+    while (t_shape_circles.length > 15) {
+        const oldCircleObj = t_shape_circles.shift();
+        t_shape_element.removeChild(oldCircleObj);
+        oldCircleObj.element = null; // release reference for GC
+        oldCircleObj.parent = null;
+    }
+
+    while (j_shape_circles.length > 15) {
+        const oldCircleObj = j_shape_circles.shift();
+        j_shape_element.removeChild(oldCircleObj);
+        oldCircleObj.element = null; // release reference for GC
+        oldCircleObj.parent = null;
     }
 }, 1000);
