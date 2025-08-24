@@ -33,3 +33,7 @@ if (code) {
     container.textContent = "Invalid code!";
   }
 }
+
+window.addEventListener("load", () => {
+  document.getElementById("text-panel").classList.add("show");
+});

@@ -11,12 +11,24 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url("images/backgroundimage.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   color: transparent;
+  background: url("images/backgroundimage.png") center/cover no-repeat fixed;
   -webkit-background-clip: text;
   background-clip: text;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay to hide background initially */
+#text-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  transition: opacity 5s linear;
+  z-index: 1;
+}
+
+#text-panel.show::after {
+  opacity: 0; /* fades out to reveal background-clip text */
 }
