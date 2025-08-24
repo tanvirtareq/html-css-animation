@@ -1,0 +1,29 @@
+#text-panel {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  height: 400px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+@keyframes grow-shrink {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.circle {
+    border-radius: 50%;
+    transform-origin: center;
+    transform: scale(1);
+    opacity: 0.8;
+    transition: transform 0.01s linear;
+    /* animation: grow-shrink 15s linear infinite; */
+}
